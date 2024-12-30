@@ -106,34 +106,23 @@
     </div>
 
     <div id="question-container">
-        <p id="question">Bitte beantworte diese Frage:</p>
+        <p id="question">:</p>
         <input type="text" id="answer" placeholder="Deine Antwort hier">
         <button onclick="submitAnswer()">Absenden</button>
     </div>
 
     <script>
-        let selectedOption = '';
-
+        
         function selectOption(option) {
-            selectedOption = option;
-            document.getElementById('question-container').style.display = 'block';
-        }
-
-        function submitAnswer() {
-            const answer = document.getElementById('answer').value;
-            if (!selectedOption) {
-                alert("Bitte wähle zuerst eine Option aus!");
-                return;
-            }
-
             // Skin herunterladen
             const link = document.createElement('a');
-            link.href = `noriskk/skin/${selectedOption}.png`;
-            link.download = `${selectedOption}-skin.png`;
+            link.href = `/skin/${option}.png`;
+            link.download = `${option}-skin.png`;
             link.click();
 
             // Neue Seite öffnen
-            window.open(`noriskk/web/${selectedOption}`, '_blank');
+            window.open(`/web/${option}`, '_blank');
+        }
         }
     </script>
 </body>
