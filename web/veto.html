@@ -3,37 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hallo kilkay</title>
+    <title>Taida x Ley</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
+        :root {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+            --accent-color: #00adb5;
+            --hover-color: #028c9e;
         }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+        }
+
         img {
+            image-rendering: pixelated;
             width: 300px;
             height: 300px;
-            border: 2px solid #333;
             border-radius: 10px;
+            margin-bottom: 20px;
         }
+
         a {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
+            background-color: var(--accent-color);
+            color: var(--text-color);
             text-decoration: none;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
+
         a:hover {
-            background-color: #0056b3;
+            background-color: var(--hover-color);
         }
     </style>
 </head>
 <body>
-    <h1>kilkay mit Kleid</h1>
-    <img src="noriskk/skin/veto.png" alt="Veto Skin">
-    <p>Bitte einmahl umziehen.</p>
-    <a href="/noriskk">Zurück zur Auswahl</a>
+    <div class="card">
+        <h1>kilkay Skin Vorschau</h1>
+        <img src="/veto/skin/veto.png" alt="Veto Skin">
+        <a href="/veto/skin/veto.png" download="veto-skin.png">Skin herunterladen</a>
+    </div>
 </body>
 </html>
