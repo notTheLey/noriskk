@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Auswahl</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .choice {
+            display: inline-block;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .choice img {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        #question-container {
+            margin-top: 30px;
+            display: none;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Minecraft Kopf Auswahl</h1>
+    <div>
+        <div class="choice" onclick="selectOption('noriskk')">
+            <img src="/img/noriskk.png" alt="NoRiskk Kopf">
+            <p>NoRiskk</p>
+        </div>
+        <div class="choice" onclick="selectOption('veto')">
+            <img src="/img/veto.png" alt="Veto Kopf">
+            <p>Veto</p>
+        </div>
+    </div>
+
+    <div id="question-container">
+        <p id="question">Bitte beantworte diese Frage:</p>
+        <input type="text" id="answer" placeholder="Deine Antwort hier">
+        <button class="button" onclick="submitAnswer()">Absenden</button>
+    </div>
+
+    <script>
+        let selectedOption = '';
+
+        function selectOption(option) {
+            selectedOption = option;
+            document.getElementById('question-container').style.display = 'block';
+        }
+
+        function submitAnswer() {
+            const answer = document.getElementById('answer').value;
+            if (!selectedOption) return alert("Bitte wähle zuerst eine Option aus!");
+
+            // Skin herunterladen
+            const link = document.createElement('a');
+            link.href = `/skin/${selectedOption}.png`;
+            link.download = `${selectedOption}-skin.png`;
+            link.click();
+
+            // Neue Seite öffnen
+            window.open(`/web/${selectedOption}`, '_blank');
+        }
+    </script>
+</body>
+</html>
