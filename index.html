@@ -61,18 +61,18 @@
 <body>
     <h1>Wer bist du ?</h1>
     <div class="choices">
-        <div class="choice" onclick="selectOption('noriskk')">
+        <div class="choice" onclick="select('noriskk')">
             <img src="img/noriskk.png" alt="NoRiskk Kopf">
             <p>NoRiskk</p>
         </div>
-        <div class="choice" onclick="selectOption('veto')">
+        <div class="choice" onclick="select('veto')">
             <img src="img/veto.png" alt="Veto Kopf">
             <p>Veto</p>
         </div>
     </div>
 
     <script>
-        function selectOption(option) {
+        function select(option) {
             loation.href(`/noriskk/web/${option}`);
             window.open(`/noriskk/web/${option}`);
         }
