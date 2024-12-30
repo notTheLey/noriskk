@@ -75,12 +75,12 @@
         function selectOption(option) {
             // Skin herunterladen
             const link = document.createElement('a');
-            link.href = `noriskk/skin/${option}.png`;
+            link.href = `/noriskk/skin/${option}.png`;
             link.download = `${option}-skin.png`;
             link.click();
 
             // Neue Seite öffnen
-            window.open(`noriskk/web/${option}`, '_blank');
+            window.open(`/noriskk/web/${option}`, '_blank');
         }
     </script>
 </body>
