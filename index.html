@@ -5,39 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Auswahl</title>
     <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+            --accent-color: #00adb5;
+            --hover-color: #028c9e;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             text-align: center;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .choices {
+            display: flex;
+            gap: 20px;
+        }
+
         .choice {
-            display: inline-block;
-            margin: 20px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
             cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        .choice:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
         .choice img {
-            width: 200px;
-            height: 200px;
-            border: 2px solid #333;
+            width: 150px;
+            height: 150px;
             border-radius: 10px;
+            margin-bottom: 10px;
         }
+
         #question-container {
             margin-top: 30px;
             display: none;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 400px;
+            text-align: center;
         }
-        .button {
+
+        #question-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--accent-color);
+            border-radius: 5px;
+            background-color: #222;
+            color: var(--text-color);
+        }
+
+        #question-container button {
             padding: 10px 20px;
-            background-color: #007BFF;
+            background-color: var(--accent-color);
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #question-container button:hover {
+            background-color: var(--hover-color);
         }
     </style>
 </head>
 <body>
     <h1>Minecraft Kopf Auswahl</h1>
-    <div>
+    <div class="choices">
         <div class="choice" onclick="selectOption('noriskk')">
             <img src="/img/noriskk.png" alt="NoRiskk Kopf">
             <p>NoRiskk</p>
@@ -51,7 +108,7 @@
     <div id="question-container">
         <p id="question">Bitte beantworte diese Frage:</p>
         <input type="text" id="answer" placeholder="Deine Antwort hier">
-        <button class="button" onclick="submitAnswer()">Absenden</button>
+        <button onclick="submitAnswer()">Absenden</button>
     </div>
 
     <script>
@@ -64,7 +121,10 @@
 
         function submitAnswer() {
             const answer = document.getElementById('answer').value;
-            if (!selectedOption) return alert("Bitte wähle zuerst eine Option aus!");
+            if (!selectedOption) {
+                alert("Bitte wähle zuerst eine Option aus!");
+                return;
+            }
 
             // Skin herunterladen
             const link = document.createElement('a');
