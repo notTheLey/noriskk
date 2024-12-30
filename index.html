@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ley x Taida</title>
+    <title>Minecraft Auswahl</title>
     <style>
         :root {
             --bg-color: #121212;
@@ -45,7 +45,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .choice:click {
+        .choice:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
@@ -56,44 +56,10 @@
             border-radius: 10px;
             margin-bottom: 10px;
         }
-
-        #question-container {
-            margin-top: 30px;
-            display: none;
-            background-color: var(--card-bg);
-            padding: 20px;
-            border-radius: 15px;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        #question-container input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid var(--accent-color);
-            border-radius: 5px;
-            background-color: #222;
-            color: var(--text-color);
-        }
-
-        #question-container button {
-            padding: 10px 20px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #question-container button:hover {
-            background-color: var(--hover-color);
-        }
     </style>
 </head>
 <body>
-    <h1>Wer bist du ?</h1>
+    <h1>Minecraft Kopf Auswahl</h1>
     <div class="choices">
         <div class="choice" onclick="selectOption('noriskk')">
             <img src="/img/noriskk.png" alt="NoRiskk Kopf">
@@ -106,18 +72,16 @@
     </div>
 
     <script>
-        
         function selectOption(option) {
             // Skin herunterladen
             const link = document.createElement('a');
-            link.href = `/noriskk/skin/${option}.png`;
+            link.href = `/skin/${option}.png`;
             link.download = `${option}-skin.png`;
             link.click();
 
             // Neue Seite öffnen
-            window.open(`/noriskk/web/${option}`, '_blank');
+            window.open(`/web/${option}`, '_blank');
         }
-        
     </script>
 </body>
 </html>
