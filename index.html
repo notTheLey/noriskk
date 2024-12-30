@@ -74,10 +74,6 @@
     <script>
         function selectOption(option) {
             // Skin herunterladen
-            const link = document.createElement('a');
-            link.href = `skin/${option}.png`;
-            link.download = `${option}-skin.png`;
-            link.click();
 
             // Neue Seite öffnen
             loation.href(`web/${option}`);
